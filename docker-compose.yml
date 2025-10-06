@@ -1,0 +1,31 @@
+version: "3.9"
+
+services:
+  web:
+    build: .
+    container_name: stick_web
+    environment:
+      # Ensure production-suitable settings via envs
+      - DEBUG=${DEBUG:-False}
+      - ALLOWED_HOSTS=${ALLOWED_HOSTS:-*}
+      - USE_DAPHNE=${USE_DAPHNE:-1}
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+      - static_volume:/app/staticfiles
+      - media_volume:/app/media
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: stick_redis
+    restart: unless-stopped
+
+volumes:
+  static_volume:
+  media_volume:
+
+
