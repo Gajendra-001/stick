@@ -137,6 +137,9 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 20,
 }
 
+
+CSRF_TRUSTED_ORIGINS = ["https://stick-production.up.railway.app"]
+
 # CORS settings
 CORS_ALLOWED_ORIGINS = [
     "https://stick-production.up.railway.app",
