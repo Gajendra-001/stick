@@ -1,0 +1,340 @@
+{% extends 'base.html' %}
+
+{% block title %}Smart Blind Stick - Empowering Independence Through Technology{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+    <!-- Animated Background -->
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute top-10 left-10 w-20 h-20 bg-white rounded-full animate-pulse-slow"></div>
+        <div class="absolute top-32 right-20 w-16 h-16 bg-white rounded-full animate-bounce-slow"></div>
+        <div class="absolute bottom-20 left-32 w-12 h-12 bg-white rounded-full animate-pulse-slow"></div>
+        <div class="absolute bottom-32 right-10 w-24 h-24 bg-white rounded-full animate-bounce-slow"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Left Content -->
+            <div class="text-white animate-fade-in">
+                <h1 class="text-5xl lg:text-6xl font-heading font-bold mb-6 leading-tight">
+                    Empowering Independence Through Technology
+                </h1>
+                <p class="text-xl lg:text-2xl mb-8 text-white/90 leading-relaxed">
+                    The Smart Blind Stick is an IoT-enabled mobility aid that provides real-time obstacle detection, 
+                    GPS tracking, and emergency alerts for visually impaired individuals.
+                </p>
+                
+                <!-- Statistics -->
+                <div class="grid grid-cols-3 gap-6 mb-8">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">39M</div>
+                        <div class="text-sm text-white/80">Blind Worldwide</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">285M</div>
+                        <div class="text-sm text-white/80">Visually Impaired</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-accent">&lt;₹3000</div>
+                        <div class="text-sm text-white/80">Affordable Solution</div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="{% url 'register' %}" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                        Get Started
+                    </a>
+                    <button onclick="playDemo()" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all transform hover:scale-105">
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Right Content - 3D Device Illustration -->
+            <div class="relative animate-slide-up">
+                <div class="relative w-full h-96 mx-auto">
+                    <!-- Smart Blind Stick 3D Illustration -->
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <div class="relative">
+                            <!-- Main Stick -->
+                            <div class="w-8 h-64 bg-gradient-to-b from-gray-300 to-gray-600 rounded-full shadow-2xl transform rotate-12"></div>
+                            
+                            <!-- Handle -->
+                            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 w-12 h-8 bg-gray-800 rounded-full"></div>
+                            
+                            <!-- Sensors -->
+                            <div class="absolute top-16 -left-6 w-4 h-4 bg-primary rounded-full animate-pulse"></div>
+                            <div class="absolute top-32 -left-6 w-4 h-4 bg-secondary rounded-full animate-pulse"></div>
+                            <div class="absolute top-48 -left-6 w-4 h-4 bg-accent rounded-full animate-pulse"></div>
+                            
+                            <!-- GPS Module -->
+                            <div class="absolute top-20 -right-8 w-6 h-6 bg-dark rounded-lg"></div>
+                            
+                            <!-- Vibration Motor -->
+                            <div class="absolute bottom-20 -right-6 w-3 h-3 bg-gray-700 rounded-full"></div>
+                            
+                            <!-- Detection Waves -->
+                            <div class="absolute top-16 -left-12 w-8 h-8 border-2 border-primary rounded-full animate-ping opacity-75"></div>
+                            <div class="absolute top-32 -left-12 w-8 h-8 border-2 border-secondary rounded-full animate-ping opacity-75" style="animation-delay: 0.5s;"></div>
+                            <div class="absolute top-48 -left-12 w-8 h-8 border-2 border-accent rounded-full animate-ping opacity-75" style="animation-delay: 1s;"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Floating Elements -->
+                    <div class="absolute top-10 right-10 w-4 h-4 bg-white rounded-full animate-bounce"></div>
+                    <div class="absolute bottom-20 left-10 w-3 h-3 bg-white rounded-full animate-bounce" style="animation-delay: 1s;"></div>
+                    <div class="absolute top-1/2 right-5 w-2 h-2 bg-white rounded-full animate-bounce" style="animation-delay: 2s;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Key Features</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Our Smart Blind Stick combines cutting-edge technology with user-friendly design to provide comprehensive mobility assistance.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- Obstacle Detection -->
+            <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-semibold text-dark mb-4">Obstacle Detection</h3>
+                <p class="text-gray-600 mb-6">
+                    Advanced ultrasonic and infrared sensors detect obstacles at ground level, head level, and identify potholes and vehicles in real-time.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• Ground-level obstacle detection</li>
+                    <li>• Head-level hazard identification</li>
+                    <li>• Pothole and vehicle detection</li>
+                    <li>• Real-time audio feedback</li>
+                </ul>
+            </div>
+            
+            <!-- GPS Tracking -->
+            <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-semibold text-dark mb-4">GPS Tracking</h3>
+                <p class="text-gray-600 mb-6">
+                    Precise location tracking with geofencing capabilities, route recording, and location history for enhanced safety and navigation.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• Real-time location tracking</li>
+                    <li>• Geofencing for safe zones</li>
+                    <li>• Route recording and analysis</li>
+                    <li>• Location history timeline</li>
+                </ul>
+            </div>
+            
+            <!-- SOS Alerts -->
+            <div class="card-hover bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+                <div class="w-16 h-16 bg-error/10 rounded-2xl flex items-center justify-center mb-6">
+                    <svg class="w-8 h-8 text-error" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                    </svg>
+                </div>
+                <h3 class="text-2xl font-heading font-semibold text-dark mb-4">SOS Alerts</h3>
+                <p class="text-gray-600 mb-6">
+                    Emergency SOS system with instant alerts to guardians, emergency contacts, and emergency services with precise location information.
+                </p>
+                <ul class="space-y-2 text-sm text-gray-500">
+                    <li>• One-touch SOS activation</li>
+                    <li>• Instant guardian notifications</li>
+                    <li>• Emergency services integration</li>
+                    <li>• Location sharing</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-20 bg-light">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-dark mb-4">How It Works</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Simple, intuitive operation designed for maximum accessibility and effectiveness.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <!-- Step 1 -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-primary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                    1
+                </div>
+                <h3 class="text-xl font-heading font-semibold text-dark mb-4">Device Setup</h3>
+                <p class="text-gray-600">
+                    Register your device and configure settings through our user-friendly web interface.
+                </p>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                    2
+                </div>
+                <h3 class="text-xl font-heading font-semibold text-dark mb-4">Guardian Connection</h3>
+                <p class="text-gray-600">
+                    Connect with family members or caregivers who can monitor your safety and location.
+                </p>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                    3
+                </div>
+                <h3 class="text-xl font-heading font-semibold text-dark mb-4">Real-Time Monitoring</h3>
+                <p class="text-gray-600">
+                    The device continuously monitors your environment and provides audio feedback for obstacles.
+                </p>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="text-center">
+                <div class="w-20 h-20 bg-error rounded-full flex items-center justify-center mx-auto mb-6 text-white text-2xl font-bold">
+                    4
+                </div>
+                <h3 class="text-xl font-heading font-semibold text-dark mb-4">Emergency Response</h3>
+                <p class="text-gray-600">
+                    In case of emergency, press the SOS button for instant alerts to your guardians.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Impact Section -->
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-heading font-bold text-dark mb-4">Making a Real Impact</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Our technology is transforming lives and creating safer, more independent experiences for visually impaired individuals.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Statistics -->
+            <div class="space-y-8">
+                <div class="flex items-center space-x-6">
+                    <div class="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-dark">95%</div>
+                        <div class="text-gray-600">Obstacle Detection Accuracy</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="w-16 h-16 bg-secondary/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-dark">&lt;30s</div>
+                        <div class="text-gray-600">Average Emergency Response Time</div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-6">
+                    <div class="w-16 h-16 bg-accent/10 rounded-2xl flex items-center justify-center">
+                        <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-dark">1000+</div>
+                        <div class="text-gray-600">Lives Impacted</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Testimonial -->
+            <div class="bg-light p-8 rounded-2xl">
+                <div class="flex items-center mb-6">
+                    <img src="https://via.placeholder.com/60" alt="User" class="w-15 h-15 rounded-full mr-4">
+                    <div>
+                        <div class="font-semibold text-dark">Sarah Johnson</div>
+                        <div class="text-gray-600">Smart Blind Stick User</div>
+                    </div>
+                </div>
+                <blockquote class="text-lg text-gray-700 italic">
+                    "The Smart Blind Stick has given me the confidence to navigate my city independently. 
+                    The obstacle detection is incredibly accurate, and knowing my family can track my location 
+                    gives me peace of mind."
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="py-20 hero-gradient">
+    <div class="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+        <h2 class="text-4xl font-heading font-bold text-white mb-6">
+            Join the Movement for Independence
+        </h2>
+        <p class="text-xl text-white/90 mb-8">
+            Be part of the revolution that's making the world more accessible for visually impaired individuals.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="{% url 'register' %}" class="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
+                Get Started Today
+            </a>
+            <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary transition-all transform hover:scale-105">
+                Partner With Us
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function playDemo() {
+        showToast('Demo video will be available soon!', 'info');
+    }
+    
+    // Animate statistics on scroll
+    const observerOptions = {
+        threshold: 0.5,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-fade-in');
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all feature cards
+    document.querySelectorAll('.card-hover').forEach(card => {
+        observer.observe(card);
+    });
+</script>
+{% endblock %}

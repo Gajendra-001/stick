@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block title %}Register - Smart Blind Stick{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-light flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-md w-full space-y-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-6">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+            </div>
+            <h2 class="text-3xl font-heading font-bold text-dark">Create Account</h2>
+            <p class="mt-2 text-gray-600">Join the Smart Blind Stick community</p>
+        </div>
+        
+        <form class="mt-8 space-y-6" method="post">
+            {% csrf_token %}
+            
+            <!-- Error Messages -->
+            {% if errors %}
+                <div class="bg-red-50 border border-red-200 rounded-lg p-4 mb-6">
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <svg class="h-5 w-5 text-red-400" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <div class="ml-3">
+                            <h3 class="text-sm font-medium text-red-800">Please correct the following errors:</h3>
+                            <div class="mt-2 text-sm text-red-700">
+                                <ul class="list-disc list-inside space-y-1">
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="space-y-4">
+                <!-- User Type -->
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">I am a:</label>
+                    <div class="grid grid-cols-2 gap-4">
+                        <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="radio" name="role" value="USER" class="h-4 w-4 text-primary focus:ring-primary border-gray-300" 
+                                   {% if not request.POST.role or request.POST.role == 'USER' %}checked{% endif %}>
+                            <div class="ml-3">
+                                <div class="text-sm font-medium text-gray-900">Visually Impaired User</div>
+                                <div class="text-xs text-gray-500">I need assistance</div>
+                            </div>
+                        </label>
+                        <label class="flex items-center p-4 border border-gray-300 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors">
+                            <input type="radio" name="role" value="GUARDIAN" class="h-4 w-4 text-primary focus:ring-primary border-gray-300"
+                                   {% if request.POST.role == 'GUARDIAN' %}checked{% endif %}>
+                            <div class="ml-3">
+                                <div class="text-sm font-medium text-gray-900">Guardian/Caretaker</div>
+                                <div class="text-xs text-gray-500">I provide assistance</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- Basic Information -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="first_name" class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                        <input id="first_name" name="first_name" type="text" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                               placeholder="Enter your first name" value="{{ request.POST.first_name|default:'' }}">
+                    </div>
+                    <div>
+                        <label for="last_name" class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                        <input id="last_name" name="last_name" type="text" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                               placeholder="Enter your last name" value="{{ request.POST.last_name|default:'' }}">
+                    </div>
+                </div>
+                
+                <div>
+                    <label for="username" class="block text-sm font-medium text-gray-700 mb-2">Username</label>
+                    <input id="username" name="username" type="text" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                           placeholder="Choose a username" value="{{ request.POST.username|default:'' }}">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                    <input id="email" name="email" type="email" required 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                           placeholder="Enter your email address" value="{{ request.POST.email|default:'' }}">
+                </div>
+                
+                <div>
+                    <label for="phone_number" class="block text-sm font-medium text-gray-700 mb-2">Phone Number</label>
+                    <input id="phone_number" name="phone_number" type="tel" 
+                           class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                           placeholder="Enter your phone number" value="{{ request.POST.phone_number|default:'' }}">
+                </div>
+                
+                <!-- Visual Impairment Level (for users only) -->
+                <div id="impairment-level" class="hidden">
+                    <label for="visual_impairment_level" class="block text-sm font-medium text-gray-700 mb-2">Visual Impairment Level</label>
+                    <select id="visual_impairment_level" name="visual_impairment_level" 
+                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors">
+                        <option value="">Select your level</option>
+                        <option value="MILD">Mild Visual Impairment</option>
+                        <option value="MODERATE">Moderate Visual Impairment</option>
+                        <option value="SEVERE">Severe Visual Impairment</option>
+                        <option value="BLIND">Blind</option>
+                    </select>
+                </div>
+                
+                <!-- Emergency Contact -->
+                <div class="border-t pt-4">
+                    <h3 class="text-lg font-medium text-dark mb-4">Emergency Contact</h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="emergency_contact_name" class="block text-sm font-medium text-gray-700 mb-2">Contact Name</label>
+                            <input id="emergency_contact_name" name="emergency_contact_name" type="text" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                   placeholder="Emergency contact name" value="{{ request.POST.emergency_contact_name|default:'' }}">
+                        </div>
+                        <div>
+                            <label for="emergency_contact_phone" class="block text-sm font-medium text-gray-700 mb-2">Contact Phone</label>
+                            <input id="emergency_contact_phone" name="emergency_contact_phone" type="tel" 
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                                   placeholder="Emergency contact phone" value="{{ request.POST.emergency_contact_phone|default:'' }}">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Password -->
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-2">Password</label>
+                        <input id="password" name="password" type="password" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                               placeholder="Create a password">
+                    </div>
+                    <div>
+                        <label for="password_confirm" class="block text-sm font-medium text-gray-700 mb-2">Confirm Password</label>
+                        <input id="password_confirm" name="password_confirm" type="password" required 
+                               class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-colors"
+                               placeholder="Confirm your password">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex items-center">
+                <input id="terms" name="terms" type="checkbox" required 
+                       class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                <label for="terms" class="ml-2 block text-sm text-gray-700">
+                    I agree to the <a href="#" class="text-primary hover:text-blue-600 transition-colors">Terms of Service</a> 
+                    and <a href="#" class="text-primary hover:text-blue-600 transition-colors">Privacy Policy</a>
+                </label>
+            </div>
+            
+            <div>
+                <button type="submit" 
+                        class="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors">
+                    Create Account
+                </button>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-sm text-gray-600">
+                    Already have an account? 
+                    <a href="{% url 'login' %}" class="font-medium text-primary hover:text-blue-600 transition-colors">
+                        Sign in here
+                    </a>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const roleInputs = document.querySelectorAll('input[name="role"]');
+        const impairmentLevel = document.getElementById('impairment-level');
+        
+        roleInputs.forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.value === 'USER') {
+                    impairmentLevel.classList.remove('hidden');
+                } else {
+                    impairmentLevel.classList.add('hidden');
+                }
+            });
+        });
+        
+        // Form validation
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(e) {
+            const password = document.getElementById('password').value;
+            const passwordConfirm = document.getElementById('password_confirm').value;
+            
+            if (password !== passwordConfirm) {
+                e.preventDefault();
+                showToast('Passwords do not match', 'error');
+            }
+        });
+    });
+</script>
+{% endblock %}

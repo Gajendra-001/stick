@@ -1,0 +1,349 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - Smart Blind Stick{% endblock %}
+
+{% block extra_css %}
+<style>
+    /* Custom styles for dashboard */
+    .nav-item.active {
+        background-color: rgba(59, 130, 246, 0.1);
+        color: #3B82F6;
+    }
+    
+    .stat-card {
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .map-container {
+        height: 400px;
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    .activity-item {
+        transition: background-color 0.2s ease-in-out;
+    }
+    
+    .activity-item:hover {
+        background-color: #f9fafb;
+    }
+    
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-light">
+        <!-- Page Header -->
+        <div class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <h1 class="text-2xl font-heading font-bold text-dark">Dashboard</h1>
+                    <p class="text-gray-600">Welcome back, {{ user.get_full_name }}!</p>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors" onclick="testSOS()">
+                        Test SOS
+                    </button>
+                    <button class="bg-secondary text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-colors" onclick="updateLocation()">
+                        Update Location
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dashboard Content -->
+        <div class="p-6">
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <!-- Device Status -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-dark">Device Status</h3>
+                        <div class="w-3 h-3 bg-green-500 rounded-full status-online"></div>
+                    </div>
+                    <div class="text-2xl font-bold text-dark mb-2">Online</div>
+                    <div class="text-sm text-gray-600">Last sync: 2 minutes ago</div>
+                </div>
+                
+                <!-- Battery Level -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-dark">Battery Level</h3>
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-dark mb-2">85%</div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="bg-green-500 h-2 rounded-full" style="width: 85%"></div>
+                    </div>
+                </div>
+                
+                <!-- Today's Detections -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-dark">Today's Detections</h3>
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-dark mb-2">23</div>
+                    <div class="text-sm text-gray-600 flex items-center">
+                        <span class="text-green-500 mr-1">↗</span>
+                        +5 from yesterday
+                    </div>
+                </div>
+                
+                <!-- Active Alerts -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-dark">Active Alerts</h3>
+                        <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                        </svg>
+                    </div>
+                    <div class="text-2xl font-bold text-dark mb-2">0</div>
+                    <div class="text-sm text-gray-600">All clear</div>
+                </div>
+            </div>
+            
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Live Location Map -->
+                <div class="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="text-xl font-heading font-semibold text-dark">Live Location</h3>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                            <span class="text-sm text-gray-600">Live tracking</span>
+                        </div>
+                    </div>
+                    <div id="map" class="map-container"></div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Recent Activity</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                            <div>
+                                <div class="text-sm font-medium text-dark">Obstacle detected</div>
+                                <div class="text-xs text-gray-600">Ground level - 2 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full mt-2"></div>
+                            <div>
+                                <div class="text-sm font-medium text-dark">Location updated</div>
+                                <div class="text-xs text-gray-600">5 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-yellow-500 rounded-full mt-2"></div>
+                            <div>
+                                <div class="text-sm font-medium text-dark">Battery low warning</div>
+                                <div class="text-xs text-gray-600">15 minutes ago</div>
+                            </div>
+                        </div>
+                        <div class="flex items-start space-x-3">
+                            <div class="w-2 h-2 bg-green-500 rounded-full mt-2"></div>
+                            <div>
+                                <div class="text-sm font-medium text-dark">Device synced</div>
+                                <div class="text-xs text-gray-600">20 minutes ago</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Analytics Charts -->
+            <div class="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Daily Activity Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Daily Activity</h3>
+                    <div class="chart-container">
+                        <canvas id="dailyActivityChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Obstacle Types Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Obstacle Types</h3>
+                    <div class="chart-container">
+                        <canvas id="obstacleTypesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Initialize map
+    function initMap() {
+        const map = L.map('map').setView([28.6139, 77.2090], 15); // Default to Delhi
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Add user marker
+        const userMarker = L.marker([28.6139, 77.2090]).addTo(map);
+        userMarker.bindPopup('<b>Your Location</b><br>Last updated: 2 minutes ago');
+        
+        // Add sample route
+        const route = [
+            [28.6139, 77.2090],
+            [28.6145, 77.2095],
+            [28.6150, 77.2100],
+            [28.6155, 77.2105]
+        ];
+        
+        L.polyline(route, {color: 'blue', weight: 3}).addTo(map);
+    }
+    
+    // Initialize charts
+    function initCharts() {
+        // Daily Activity Chart
+        const dailyCtx = document.getElementById('dailyActivityChart').getContext('2d');
+        new Chart(dailyCtx, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Distance (km)',
+                    data: [2.5, 3.2, 1.8, 4.1, 2.9, 1.2, 0.8],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Obstacles Detected',
+                    data: [15, 23, 12, 28, 19, 8, 5],
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+        
+        // Obstacle Types Chart
+        const obstacleCtx = document.getElementById('obstacleTypesChart').getContext('2d');
+        new Chart(obstacleCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ground Level', 'Head Level', 'Potholes', 'Vehicles', 'Other'],
+                datasets: [{
+                    data: [45, 25, 15, 10, 5],
+                    backgroundColor: [
+                        '#3B82F6',
+                        '#10B981',
+                        '#F59E0B',
+                        '#EF4444',
+                        '#8B5CF6'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                    }
+                }
+            }
+        });
+    }
+    
+    
+    // Toast notification function
+    function showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+        
+        const colors = {
+            'info': 'bg-blue-500 text-white',
+            'success': 'bg-green-500 text-white',
+            'warning': 'bg-yellow-500 text-white',
+            'error': 'bg-red-500 text-white'
+        };
+        
+        toast.className += ` ${colors[type] || colors.info}`;
+        toast.innerHTML = `
+            <div class="flex items-center space-x-2">
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        // Animate in
+        setTimeout(() => {
+            toast.classList.remove('translate-x-full');
+        }, 100);
+        
+        // Auto remove after 5 seconds
+        setTimeout(() => {
+            toast.classList.add('translate-x-full');
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 300);
+        }, 5000);
+    }
+    
+    // Button functions
+    function testSOS() {
+        showToast('SOS test initiated! This is a test alert.', 'warning');
+        // TODO: Implement actual SOS test functionality
+    }
+    
+    function updateLocation() {
+        showToast('Location update requested...', 'info');
+        // TODO: Implement location update functionality
+    }
+    
+    // Initialize everything when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initMap();
+        initCharts();
+        
+        // Sidebar functionality is now handled by the base template
+        
+        // Navigation is now handled by the base template
+        
+        // Auto-refresh data every 30 seconds
+        setInterval(() => {
+            // TODO: Implement data refresh
+            console.log('Refreshing dashboard data...');
+        }, 30000);
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,408 @@
+{% extends 'base.html' %}
+
+{% block title %}Analytics - Smart Blind Stick{% endblock %}
+
+{% block extra_css %}
+<style>
+    .sidebar {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.collapsed + #main-content {
+        margin-left: 0 !important;
+    }
+    
+    @media (max-width: 1024px) {
+        .sidebar {
+            transform: translateX(-100%);
+        }
+        
+        .sidebar.show {
+            transform: translateX(0);
+        }
+        
+        #main-content {
+            margin-left: 0 !important;
+        }
+    }
+    
+    .stat-card {
+        transition: transform 0.2s ease-in-out;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .chart-container {
+        position: relative;
+        height: 300px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-light">
+        <!-- Header -->
+        <header class="bg-white shadow-sm border-b border-gray-200 px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <button id="sidebar-toggle" class="lg:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                        <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                    <div>
+                        <h1 class="text-2xl font-heading font-bold text-dark">Analytics Dashboard</h1>
+                        <p class="text-gray-600">Track your mobility patterns and safety metrics</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <select id="dateRange" class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary">
+                        <option value="7_days">Last 7 days</option>
+                        <option value="30_days">Last 30 days</option>
+                        <option value="3_months">Last 3 months</option>
+                    </select>
+                    <button onclick="exportReport()" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                        Export Report
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Analytics Content -->
+        <div class="p-6">
+            <!-- Summary Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                <div class="stat-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Distance Traveled</p>
+                            <p class="text-2xl font-bold text-dark">{{ analytics_data.summary_stats.distance_traveled }} km</p>
+                        </div>
+                        <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Obstacles Detected</p>
+                            <p class="text-2xl font-bold text-dark">{{ analytics_data.summary_stats.obstacles_detected }}</p>
+                        </div>
+                        <div class="w-12 h-12 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">SOS Activations</p>
+                            <p class="text-2xl font-bold text-dark">{{ analytics_data.summary_stats.sos_activations }}</p>
+                        </div>
+                        <div class="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stat-card bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <p class="text-sm font-medium text-gray-600">Avg Response Time</p>
+                            <p class="text-2xl font-bold text-dark">{{ analytics_data.summary_stats.avg_response_time }} min</p>
+                        </div>
+                        <div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+                            <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Charts Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Daily Activity Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Daily Activity Trends</h3>
+                    <div class="chart-container">
+                        <canvas id="dailyActivityChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- Obstacle Types Chart -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Obstacle Types Breakdown</h3>
+                    <div class="chart-container">
+                        <canvas id="obstacleTypesChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Additional Charts -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <!-- Activity Distribution -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">Activity Time Distribution</h3>
+                    <div class="chart-container">
+                        <canvas id="activityDistributionChart"></canvas>
+                    </div>
+                </div>
+                
+                <!-- High Risk Areas -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                    <h3 class="text-xl font-heading font-semibold text-dark mb-6">High-Risk Areas</h3>
+                    <div class="space-y-4">
+                        {% for area in analytics_data.high_risk_areas %}
+                        <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
+                            <div>
+                                <h4 class="font-medium text-dark">{{ area.location }}</h4>
+                                <p class="text-sm text-gray-600">{{ area.incidents }} incidents</p>
+                            </div>
+                            <div class="text-right">
+                                <div class="text-lg font-bold text-red-600">{{ area.risk_score }}/10</div>
+                                <div class="w-20 bg-gray-200 rounded-full h-2">
+                                    <div class="bg-red-500 h-2 rounded-full" style="width: {{ area.risk_score|floatformat:0 }}0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Initialize sidebar state
+    function initSidebarState() {
+        const sidebar = document.getElementById('sidebar');
+        const mainContent = document.getElementById('main-content');
+        const toggleIcon = document.getElementById('sidebar-toggle-icon');
+        const isCollapsed = localStorage.getItem('sidebarCollapsed') === 'true';
+        
+        if (window.innerWidth <= 1024) {
+            sidebar.classList.add('collapsed');
+            mainContent.classList.remove('ml-64');
+            mainContent.classList.add('ml-0');
+            toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>';
+        } else {
+            if (isCollapsed) {
+                sidebar.classList.add('collapsed');
+                mainContent.classList.remove('ml-64');
+                mainContent.classList.add('ml-0');
+                toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>';
+            } else {
+                sidebar.classList.remove('collapsed');
+                mainContent.classList.remove('ml-0');
+                mainContent.classList.add('ml-64');
+                toggleIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>';
+            }
+        }
+    }
+    
+    function showToast(message, type = 'info') {
+        const toast = document.createElement('div');
+        toast.className = `fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg transition-all duration-300 transform translate-x-full`;
+        
+        const colors = {
+            'info': 'bg-blue-500 text-white',
+            'success': 'bg-green-500 text-white',
+            'warning': 'bg-yellow-500 text-white',
+            'error': 'bg-red-500 text-white'
+        };
+        
+        toast.className += ` ${colors[type] || colors.info}`;
+        toast.innerHTML = `
+            <div class="flex items-center space-x-2">
+                <span>${message}</span>
+                <button onclick="this.parentElement.parentElement.remove()" class="ml-2 text-white hover:text-gray-200">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.classList.remove('translate-x-full');
+        }, 100);
+        
+        setTimeout(() => {
+            toast.classList.add('translate-x-full');
+            setTimeout(() => {
+                if (toast.parentElement) {
+                    toast.remove();
+                }
+            }, 300);
+        }, 5000);
+    }
+    
+    // Initialize charts
+    function initCharts() {
+        // Daily Activity Chart
+        const dailyCtx = document.getElementById('dailyActivityChart').getContext('2d');
+        new Chart(dailyCtx, {
+            type: 'line',
+            data: {
+                labels: [{% for day in analytics_data.daily_activity %}'{{ day.date|slice:"5:" }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Obstacles Detected',
+                    data: [{% for day in analytics_data.daily_activity %}{{ day.obstacles }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                    borderColor: '#3B82F6',
+                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                    tension: 0.4
+                }, {
+                    label: 'Distance (km)',
+                    data: [{% for day in analytics_data.daily_activity %}{{ day.distance }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                    borderColor: '#10B981',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    tension: 0.4,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false,
+                        },
+                    }
+                }
+            }
+        });
+        
+        // Obstacle Types Chart
+        const obstacleCtx = document.getElementById('obstacleTypesChart').getContext('2d');
+        new Chart(obstacleCtx, {
+            type: 'doughnut',
+            data: {
+                labels: [{% for type in analytics_data.obstacle_types %}'{{ type.type }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+                datasets: [{
+                    data: [{% for type in analytics_data.obstacle_types %}{{ type.count }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                    backgroundColor: [
+                        '#3B82F6',
+                        '#10B981',
+                        '#F59E0B',
+                        '#EF4444'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+        
+        // Activity Distribution Chart
+        const activityCtx = document.getElementById('activityDistributionChart').getContext('2d');
+        new Chart(activityCtx, {
+            type: 'bar',
+            data: {
+                labels: [{% for period in analytics_data.activity_distribution %}'{{ period.period }}'{% if not forloop.last %},{% endif %}{% endfor %}],
+                datasets: [{
+                    label: 'Activity %',
+                    data: [{% for period in analytics_data.activity_distribution %}{{ period.percentage }}{% if not forloop.last %},{% endif %}{% endfor %}],
+                    backgroundColor: [
+                        '#3B82F6',
+                        '#10B981',
+                        '#F59E0B',
+                        '#6B7280'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+    }
+    
+    // Export report function
+    function exportReport() {
+        const format = document.getElementById('dateRange').value;
+        
+        const formData = new FormData();
+        formData.append('csrfmiddlewaretoken', document.querySelector('[name=csrfmiddlewaretoken]').value);
+        formData.append('action', 'export_report');
+        formData.append('format', 'pdf');
+        formData.append('date_range', format);
+        
+        fetch('{% url "analytics_dashboard" %}', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast(data.message, 'success');
+            } else {
+                showToast('Failed to export report', 'error');
+            }
+        })
+        .catch(error => {
+            showToast('Error exporting report', 'error');
+        });
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        initCharts();
+        initSidebarState();
+        
+        const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+        const sidebarClose = document.getElementById('sidebar-close');
+        
+        if (sidebarToggleBtn) {
+            sidebarToggleBtn.addEventListener('click', toggleSidebar);
+        }
+        
+        if (sidebarClose) {
+            sidebarClose.addEventListener('click', toggleSidebar);
+        }
+    });
+</script>
+{% endblock %}

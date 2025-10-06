@@ -1,0 +1,651 @@
+Watching for file changes with StatReloader
+/home/core/stick/config/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 400 71624
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '192.168.122.247:8000'. You may need to add '192.168.122.247' to ALLOWED_HOSTS.
+Bad Request: /
+"GET / HTTP/1.1" 400 71586
+/home/core/stick/config/settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 32181
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 5199
+"GET /register/ HTTP/1.1" 200 24878
+"POST /register/ HTTP/1.1" 200 24878
+Not Found: /favicon.ico
+"POST /register/ HTTP/1.1" 200 24878
+Not Found: /favicon.ico
+"GET /login/ HTTP/1.1" 200 17520
+"POST /login/ HTTP/1.1" 200 17520
+Not Found: /favicon.ico
+"GET /register/ HTTP/1.1" 200 24878
+Not Found: /favicon.ico
+"POST /register/ HTTP/1.1" 200 24878
+Not Found: /favicon.ico
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/config/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /register/ HTTP/1.1" 200 25170
+Forbidden (CSRF cookie not set.): /register/
+"POST /register/ HTTP/1.1" 403 2869
+"GET /register/ HTTP/1.1" 200 25170
+"GET /register/ HTTP/1.1" 200 25170
+"POST /register/ HTTP/1.1" 302 0
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/core/stick/apps/users/views.py", line 151, in dashboard
+    return render(request, 'dashboard.html')
+  File "/home/core/.local/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 325, in render
+    return nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /dashboard/ HTTP/1.1" 500 165238
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /register/ HTTP/1.1" 200 25170
+"GET /register/ HTTP/1.1" 200 25170
+"POST /register/ HTTP/1.1" 200 26608
+/home/core/stick/config/settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 32276
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /register/ HTTP/1.1" 200 25170
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"POST /register/ HTTP/1.1" 200 26522
+"POST /register/ HTTP/1.1" 302 0
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/core/stick/apps/users/views.py", line 151, in dashboard
+    return render(request, 'dashboard.html')
+  File "/home/core/.local/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 325, in render
+    return nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /dashboard/ HTTP/1.1" 500 166478
+Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/core/stick/apps/users/views.py", line 151, in dashboard
+    return render(request, 'dashboard.html')
+  File "/home/core/.local/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 325, in render
+    return nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'logout' not found. 'logout' is not a valid view function or pattern name.
+"GET /dashboard/ HTTP/1.1" 500 166478
+/home/core/stick/apps/users/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/dashboard/ HTTP/1.1" 404 5397
+"GET /dashboard/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/dashboard/ HTTP/1.1" 404 5397
+"GET / HTTP/1.1" 200 32276
+"GET /login/ HTTP/1.1" 200 17686
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/dashboard/ HTTP/1.1" 404 5397
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/users/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /test-dashboard/ HTTP/1.1" 200 30621
+"GET /register/ HTTP/1.1" 200 25175
+"POST /register/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31411
+"GET /dashboard/ HTTP/1.1" 200 31411
+"GET /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31411
+"GET /register/ HTTP/1.1" 200 25175
+"POST /register/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /register/ HTTP/1.1" 200 25175
+"POST /register/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 31409
+"GET /dashboard/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/dashboard/ HTTP/1.1" 404 5582
+"GET /dashboard/ HTTP/1.1" 200 31413
+/home/core/stick/apps/users/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /profile/ HTTP/1.1" 200 18044
+"GET /dashboard/ HTTP/1.1" 200 31413
+Watching for file changes with StatReloader
+"GET /profile/ HTTP/1.1" 200 18044
+"GET / HTTP/1.1" 200 33062
+"GET /profile/ HTTP/1.1" 200 18044
+"GET /dashboard/ HTTP/1.1" 200 31413
+"GET /dashboard/ HTTP/1.1" 200 31413
+"GET /dashboard/ HTTP/1.1" 302 0
+Not Found: /accounts/login/
+"GET /accounts/login/?next=/dashboard/ HTTP/1.1" 404 5582
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 36282
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 36274
+"GET /dashboard/ HTTP/1.1" 200 36274
+"GET /dashboard/ HTTP/1.1" 200 36286
+"GET /dashboard/ HTTP/1.1" 200 36286
+"GET / HTTP/1.1" 200 33039
+"GET /profile/ HTTP/1.1" 200 18021
+"GET /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 32281
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 36286
+"GET /dashboard/ HTTP/1.1" 200 36049
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /dashboard/ HTTP/1.1" 200 36049
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /dashboard/ HTTP/1.1" 200 36242
+/home/core/stick/apps/devices/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/devices/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39149
+Internal Server Error: /device/
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/contrib/auth/decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "/home/core/stick/apps/devices/views.py", line 40, in device_detail
+    return render(request, 'devices/device_detail.html', {
+  File "/home/core/.local/lib/python3.10/site-packages/django/shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader.py", line 62, in render_to_string
+    return template.render(context, request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+  File "/home/core/.local/lib/python3.10/site-packages/django/template/defaulttags.py", line 478, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "/home/core/.local/lib/python3.10/site-packages/django/urls/resolvers.py", line 848, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'location_tracking' not found. 'location_tracking' is not a valid view function or pattern name.
+"GET /device/ HTTP/1.1" 500 189529
+/home/core/stick/apps/users/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/users/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39149
+"GET /device/ HTTP/1.1" 200 35921
+/home/core/stick/apps/users/urls.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 32802
+"GET /profile/ HTTP/1.1" 200 17784
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /profile/ HTTP/1.1" 200 17784
+"GET /dashboard/ HTTP/1.1" 200 39161
+/home/core/stick/apps/tracking/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/tracking/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39149
+"GET /location/ HTTP/1.1" 200 15294
+/home/core/stick/apps/alerts/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/alerts/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39149
+"GET /alerts/ HTTP/1.1" 200 15282
+/home/core/stick/apps/analytics/views.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/apps/analytics/urls.py changed, reloading.
+Watching for file changes with StatReloader
+/home/core/stick/config/urls.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39149
+"GET /analytics/ HTTP/1.1" 200 15298
+/home/core/stick/apps/alerts/views.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 39161
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /profile/ HTTP/1.1" 200 17784
+"GET / HTTP/1.1" 200 32281
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /login/ HTTP/1.1" 200 17691
+"POST /login/ HTTP/1.1" 200 18943
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /profile/ HTTP/1.1" 200 17784
+"GET /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 32281
+"GET /register/ HTTP/1.1" 200 25175
+"GET / HTTP/1.1" 200 32281
+"POST /register/ HTTP/1.1" 200 26501
+"POST /register/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET / HTTP/1.1" 200 32802
+"GET /register/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /profile/ HTTP/1.1" 200 17490
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET / HTTP/1.1" 200 32802
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET / HTTP/1.1" 200 32802
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET / HTTP/1.1" 200 32802
+"GET / HTTP/1.1" 200 32802
+"GET /dashboard/ HTTP/1.1" 200 39161
+"GET /login/ HTTP/1.1" 200 21948
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40037
+"GET /dashboard/ HTTP/1.1" 200 40037
+"GET /login/ HTTP/1.1" 200 21948
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40037
+"GET /dashboard/ HTTP/1.1" 200 40037
+"GET /device/ HTTP/1.1" 200 40687
+"GET /location/ HTTP/1.1" 200 20060
+"GET /alerts/ HTTP/1.1" 200 20048
+"GET /analytics/ HTTP/1.1" 200 20064
+"GET /profile/ HTTP/1.1" 200 22253
+"GET /login/ HTTP/1.1" 200 21948
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 40037
+"GET /dashboard/ HTTP/1.1" 200 40037
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 40049
+"GET /dashboard/ HTTP/1.1" 200 40049
+"GET / HTTP/1.1" 200 37568
+"GET /dashboard/ HTTP/1.1" 200 40049
+"GET /profile/ HTTP/1.1" 200 22256
+"GET / HTTP/1.1" 200 37568
+"GET /dashboard/ HTTP/1.1" 200 40049
+"GET /profile/ HTTP/1.1" 200 22550
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37568
+"GET /dashboard/ HTTP/1.1" 200 40049
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 40049
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37607
+"GET /profile/ HTTP/1.1" 200 22295
+"GET /dashboard/ HTTP/1.1" 200 39811
+"GET / HTTP/1.1" 200 37607
+"GET /dashboard/ HTTP/1.1" 200 39811
+Watching for file changes with StatReloader
+"GET /dashboard/ HTTP/1.1" 200 40790
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET / HTTP/1.1" 200 43726
+"GET / HTTP/1.1" 200 43726
+"GET /profile/ HTTP/1.1" 200 28447
+"GET /dashboard/ HTTP/1.1" 200 40790
+"GET / HTTP/1.1" 200 43738
+"GET /static/favicon.ico HTTP/1.1" 200 105
+Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/home/core/.local/lib/python3.10/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+  File "/home/core/.local/lib/python3.10/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+  File "/home/core/.local/lib/python3.10/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: 'testserver'. You may need to add 'testserver' to ALLOWED_HOSTS.
+Bad Request: /dashboard/
+"GET / HTTP/1.1" 200 43738
+"GET / HTTP/1.1" 200 43738
+"GET /dashboard/ HTTP/1.1" 200 40016
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /analytics/ HTTP/1.1" 200 26273
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /profile/ HTTP/1.1" 200 28459
+"GET /alerts/ HTTP/1.1" 200 26257
+"GET /location/ HTTP/1.1" 200 26269
+"GET /device/ HTTP/1.1" 200 37905
+"GET /dashboard/ HTTP/1.1" 200 40016
+"GET /dashboard/ HTTP/1.1" 200 40005
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /device/ HTTP/1.1" 200 37894
+"POST /device/ HTTP/1.1" 200 69
+"GET /dashboard/ HTTP/1.1" 200 40005
+"GET /location/ HTTP/1.1" 200 26258
+"GET /dashboard/ HTTP/1.1" 200 40005
+"GET /alerts/ HTTP/1.1" 200 26246
+"GET /dashboard/ HTTP/1.1" 200 40005
+"GET /analytics/ HTTP/1.1" 200 26262
+"GET /dashboard/ HTTP/1.1" 200 40005
+"GET /profile/ HTTP/1.1" 200 28448
+"GET /profile/ HTTP/1.1" 200 28448
+"GET /profile/ HTTP/1.1" 200 28133
+"GET /analytics/ HTTP/1.1" 200 25947
+"GET /alerts/ HTTP/1.1" 200 25931
+"GET /location/ HTTP/1.1" 200 25943
+"GET /device/ HTTP/1.1" 200 37579
+"GET /dashboard/ HTTP/1.1" 200 39690
+"GET /profile/ HTTP/1.1" 200 28133
+"GET /logout/ HTTP/1.1" 302 0
+"GET / HTTP/1.1" 200 37355
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /login/ HTTP/1.1" 200 22765
+"GET /static/favicon.ico HTTP/1.1" 200 105
+"GET /register/ HTTP/1.1" 200 30249
+"GET /login/ HTTP/1.1" 200 22765
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 39690
