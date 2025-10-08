@@ -649,3 +649,25 @@ Bad Request: /dashboard/
 "GET /login/ HTTP/1.1" 200 22765
 "POST /login/ HTTP/1.1" 302 0
 "GET /dashboard/ HTTP/1.1" 200 39690
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37355
+"GET /static/favicon.ico HTTP/1.1" 200 105
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 37355
+"GET / HTTP/1.1" 200 37355
+"GET / HTTP/1.1" 200 40858
+"GET / HTTP/1.1" 200 40858
+"GET / HTTP/1.1" 200 40858
+"GET /login/ HTTP/1.1" 200 26268
+"POST /login/ HTTP/1.1" 302 0
+"GET /dashboard/ HTTP/1.1" 200 44956
+"GET /device/ HTTP/1.1" 200 42845
+"GET /profile/ HTTP/1.1" 200 33693
+"GET /dashboard/ HTTP/1.1" 200 44956
+"GET /dashboard/ HTTP/1.1" 200 44989
+"GET /dashboard/ HTTP/1.1" 200 44989
+"GET /dashboard/ HTTP/1.1" 200 44989
+"GET /profile/ HTTP/1.1" 200 33693
+"GET / HTTP/1.1" 200 48678
+"GET /dashboard/ HTTP/1.1" 200 44989
+"GET /dashboard/ HTTP/1.1" 200 44956
